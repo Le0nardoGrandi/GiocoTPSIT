@@ -10,8 +10,8 @@ import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class Server {
+    Socket socket= null;
     public ServerSocket  connessioneS(){
-        Socket socket= null;
         try {
             BuonAnno bn= new BuonAnno(5);
             ServerSocket serverSocket=new ServerSocket(2000);
@@ -28,11 +28,12 @@ public class Server {
         }
         return null;
     }
-    public void comunicazioneS(Socket socket){
+    public void comunicazioneS(){
         BufferedReader inDalClient = null;
         try {
             inDalClient = new BufferedReader (new InputStreamReader (socket.getInputStream()));
             DataOutputStream outVersoClient = new DataOutputStream (socket.getOutputStream());
+            outVersoClient.writeBytes("ciao");
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

@@ -10,8 +10,8 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class Client {
+    Socket socket = null;
     public Socket connessioneC(){
-        Socket socket = null;
         try {
             socket = new Socket("127.0.0.1",2000);
             System.out.println("Indirizzo dell'Host:  " + socket.getLocalSocketAddress());
@@ -20,10 +20,12 @@ public class Client {
         }
         return socket;
     }
-    public void comunicazioneC(Socket socket){
+    public void comunicazioneC(){
         BufferedReader inDalServer = null;
         try {
             inDalServer = new BufferedReader (new InputStreamReader (socket.getInputStream()));
+            String prova = inDalServer.readLine();
+             System.out.println(prova);
             DataOutputStream outVersoServer = new DataOutputStream (socket.getOutputStream());
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);

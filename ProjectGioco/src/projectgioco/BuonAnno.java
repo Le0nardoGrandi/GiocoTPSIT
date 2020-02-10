@@ -14,7 +14,6 @@ public class BuonAnno extends Thread {
         for(int c=t;c!=0;c-=1){
                 try {
                     if(n==1){
-                        System.out.println("STOOOOOOOOOP!!!!");
                         this.interrupt();
                         
                         break;
