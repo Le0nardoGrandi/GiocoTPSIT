@@ -1,15 +1,9 @@
 package projectgioco;
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.UnknownHostException;
+import java.io.*;
+import java.net.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-public class Server {
+public class Server extends Thread{
     Socket socket= null;
     public ServerSocket  connessioneS(){
         try {
@@ -44,4 +38,9 @@ public class Server {
             }
         }
     }
+    
+    public Server (Socket socket){
+        this.socket=socket;
+    }
+    
 }
