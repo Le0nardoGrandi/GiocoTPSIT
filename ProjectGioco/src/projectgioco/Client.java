@@ -1,16 +1,19 @@
 package projectgioco;
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.ConnectException;
-import java.net.InetAddress;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class Client {
     Socket socket = null;
+    String nomeServer ="nomeServer";
+    int portaServer = 6789;
+    DataInputStream in;
+    DataOutputStream out;
+    
     public Socket connessioneC(){
         try {
             socket = new Socket("127.0.0.1",2000);
